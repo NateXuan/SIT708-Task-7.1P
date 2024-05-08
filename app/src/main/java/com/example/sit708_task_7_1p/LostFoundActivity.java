@@ -69,15 +69,6 @@ public class LostFoundActivity extends AppCompatActivity {
         return new Gson().fromJson(itemsJson, type);
     }
 
-    private void saveItemsToSharedPreferences(List<LostFoundItem> itemsList) {
-        SharedPreferences sharedPreferences = getSharedPreferences("LostFoundPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(itemsList);
-        editor.putString("items", json);
-        editor.apply();
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
